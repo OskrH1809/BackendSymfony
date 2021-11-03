@@ -1,0 +1,6 @@
+App\Entity\Estado:
+  attributes:
+    id:
+      groups: ['estado']
+    name:
+      groups: ['estado']

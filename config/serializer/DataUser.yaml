@@ -1,0 +1,12 @@
+App\Entity\DataUser:
+  attributes:
+    id:
+      groups: ['data']
+    cuentaBanco:
+      groups: ['data']
+    telefono:
+      groups: ['data']
+    direccion:
+      groups: ['data']
+    user:
+      groups: ['data']  

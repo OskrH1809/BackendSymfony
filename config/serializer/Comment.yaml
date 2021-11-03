@@ -1,0 +1,10 @@
+App\Entity\Comment:
+  attributes:
+    id:
+      groups: ['comment']
+    user:
+      groups: ['comment']
+    createAt:
+      groups: ['comment']
+    text:
+      groups: ['comment']

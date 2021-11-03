@@ -1,0 +1,13 @@
+App\Entity\Tareas:
+  attributes:
+    id:
+      groups: ['tareas']
+    titulo:
+      groups: ['tareas']
+    descripcion:
+      groups: ['tareas']
+    servicio:
+      groups: ['tareas']
+    user:
+      groups: ['tareas']
+    

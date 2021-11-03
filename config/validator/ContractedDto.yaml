@@ -1,0 +1,8 @@
+
+App\Form\Model\ContractedDto:
+  properties:
+    base64Image:
+      - NotBlank: ~
+      - AtLeastOneOf:
+          - Length:
+              min: 3

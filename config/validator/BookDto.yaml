@@ -1,0 +1,8 @@
+
+App\Form\Model\BookDto:
+  properties:
+    title:
+      - NotBlank: ~
+      - AtLeastOneOf:
+          - Length:
+              min: 3

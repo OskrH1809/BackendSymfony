@@ -1,0 +1,13 @@
+parameters:
+    level: 3
+    paths:
+        - src
+    excludes_analyse:
+        - %rootDir%/src/migrations
+    symfony:
+        constant_hassers: false
+        console_application_loader: tests/console-application.php
+        container_xml_path: var/cache/dev/App_KernelDevDebugContainer.xml
+    doctrine:
+        objectManagerLoader: tests/object-manager.php
+        repositoryClass: Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository

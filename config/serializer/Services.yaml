@@ -1,0 +1,10 @@
+App\Entity\Services:
+  attributes:
+    id:
+      groups: ['service']
+    name:
+      groups: ['service']
+    price:
+      groups: [ 'service' ]
+    date:
+      groups: [ 'service' ]

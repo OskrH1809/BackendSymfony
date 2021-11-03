@@ -1,0 +1,25 @@
+App\Entity\Documentos:
+  attributes:
+    id:
+      groups: ['documentos']
+    nombre:
+      groups: ['documentos']
+ 
+    ruta:
+      groups: ['documentos']
+
+    tipo:
+      groups: ['documentos']
+    
+    user:
+      groups: ['documentos']
+    
+    dependent:
+      groups: ['documentos']
+    
+    createAt:
+      groups: ['documentos']
+  
+    updateAt:
+      groups: ['documentos']
+    
