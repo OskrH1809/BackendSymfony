@@ -5,8 +5,7 @@ namespace App\Controller\Api\Servicios;
 
 use App\Service\Contracted\ContractedService;
 use App\Repository\ContratedServicesRepository;
-
-
+use DateTime;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -174,4 +173,15 @@ class ServiciosContratadosController extends AbstractController
     {
         return $contratedServicesRepository->serviciosContratadosAprobadosByUser($request);
     }
+
+
+     /**
+     * @Rest\Get(path="/servicios_contratados_fechas/{fecha1}/{fecha2}")
+     * @Rest\View(serializerGroups={"service"}, serializerEnableMaxDepthChecks=true)
+     */
+    public function topServicioEntreFechas(Request $request, ContratedServicesRepository $contratedServicesRepository): array
+    {
+        return $contratedServicesRepository->serviciosContratadoEntreFechas(new DateTime($request->get('fecha1')), new DateTime($request->get('fecha2')));
+    }
+
 }

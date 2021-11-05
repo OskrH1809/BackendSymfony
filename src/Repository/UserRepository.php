@@ -65,5 +65,14 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         ;
     }
     */
+    public function usuariosAll()
+    {
 
+        $params = [
+            ':tarea' => '1'
+        ];
+        $query = 'SELECT u.email as label, u.id as value FROM user u
+        WHERE perfil_id = 3';
+        return  ['data'=>$this->getEntityManager()->getConnection()->executeQuery(strtr($query, $params))->fetchAllAssociative()];
+    }
 }

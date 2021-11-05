@@ -58,7 +58,7 @@ class TareasRepository extends ServiceEntityRepository
         LEFT JOIN conversation con ON con.id = com.conversation_id
         LEFT JOIN tareas t ON t.id = con.tarea_id
         WHERE t.id = :tarea && com.viewed=1'    ;
-        return $this->getEntityManager()->getConnection()->executeQuery($query, $params)->fetchAssociative(); 
+        return $this->getEntityManager()->getConnection()->executeQuery(strtr($query, $params))->fetchAssociative(); 
 
     }
 

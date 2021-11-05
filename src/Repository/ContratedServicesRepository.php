@@ -4,7 +4,11 @@ namespace App\Repository;
 
 use App\Entity\ServiciosContratados;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Mapping\Id;
+use Doctrine\ORM\Query\AST\Join;
 use Doctrine\Persistence\ManagerRegistry;
+
+use function Symfony\Component\DependencyInjection\Loader\Configurator\service;
 
 /**
  * @method ServiciosContratados|null find($id, $lockMode = null, $lockVersion = null)
@@ -203,5 +207,22 @@ class ContratedServicesRepository extends ServiceEntityRepository
 
     }
 
+
+        public function serviciosContratadoEntreFechas(\DateTime  $fecha1, \DateTime  $fecha2)
+        {
+            return $this->createQueryBuilder('c')
+            ->andWhere('c.createAt >= :val')
+            ->andWhere('c.createAt <= :val2')
+            ->setParameter('val', $fecha1)
+            ->setParameter('val2', $fecha2)
+            ->orderBy('c.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+        }
+    
+    
+
+    
 
 }

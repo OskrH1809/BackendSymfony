@@ -21,6 +21,15 @@ class UsersController extends AbstractController
     }
 
     /**
+     * @Rest\Get(path="/usuarios_select")
+     * @Rest\View(serializerGroups={"user"}, serializerEnableMaxDepthChecks=true)
+     */
+    public function usersAll(UserRepository $userRepository): array
+    {
+        return $userRepository->usuariosAll();
+    }
+
+    /**
      * @Rest\Post(path="/register")
      * @Rest\View(serializerGroups={"user"}, serializerEnableMaxDepthChecks=true)
      */

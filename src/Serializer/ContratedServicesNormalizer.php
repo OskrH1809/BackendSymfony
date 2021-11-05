@@ -5,6 +5,7 @@ namespace App\Serializer;
 use App\Entity\ServiciosContratados;
 use Symfony\Component\Serializer\Normalizer\ContextAwareNormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\VarDumper\Caster\Caster;
 
 class ContratedServicesNormalizer implements ContextAwareNormalizerInterface
 {
@@ -30,6 +31,7 @@ class ContratedServicesNormalizer implements ContextAwareNormalizerInterface
         $data['servicioActivo'] = $contratedServices->getServicio()->getActivo();
         $data['hours_service'] = $contratedServices->getServicio()->getHoursService();
         $data['periodo_pago'] = $contratedServices->getPeriodoPago();
+        $data['fecha_servicio_contratado'] =($contratedServices->getCreateAt()->format('d-m-Y'));
 
 
         
