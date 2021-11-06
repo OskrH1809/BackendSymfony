@@ -167,7 +167,7 @@ class ServicesRepository extends ServiceEntityRepository
             ':fecha_1' => '2021-01-08',
             ':fecha_2' => '2021-08-09'
         ];
-        $query = '  SELECT count(sc.servicio_id) as maximo,s.name,MIN(sc.servicio_id) as servicio_id FROM servicios_contratados sc
+        $query = '  SELECT count(sc.servicio_id) as maximo,s.name,s.price,MIN(sc.servicio_id) as servicio_id FROM servicios_contratados sc
                     INNER JOIN services s ON s.id=sc.servicio_id
                     GROUP BY s.name 
                     HAVING maximo = (SELECT count(sc.servicio_id) as minimo FROM servicios_contratados sc
@@ -188,7 +188,7 @@ class ServicesRepository extends ServiceEntityRepository
             ':fecha_1' => '2021-01-08',
             ':fecha_2' => '2021-08-09'
         ];
-        $query = ' SELECT count(sc.servicio_id) as minimo,s.name,MIN(sc.servicio_id) as servicio_id FROM servicios_contratados sc
+        $query = ' SELECT count(sc.servicio_id) as minimo,s.name, s.price,MIN(sc.servicio_id) as servicio_id FROM servicios_contratados sc
                     INNER JOIN services s ON s.id=sc.servicio_id
                     GROUP BY s.name 
                     HAVING minimo = (SELECT count(sc.servicio_id) as minimo FROM servicios_contratados sc

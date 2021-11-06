@@ -7,6 +7,8 @@ use App\Repository\UserRepository;
 use App\Service\Users\UsersService;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
+
 
 class UsersController extends AbstractController
 {
@@ -85,5 +87,14 @@ class UsersController extends AbstractController
     public function recoverPassword(UsersService $usersService)
     {
         return $usersService->recoverPassword();
+    }
+
+    /**
+     * @Rest\Get(path="/get_name/{id}")
+     * @Rest\View(serializerGroups={"user"}, serializerEnableMaxDepthChecks=true)
+     */
+    public function getNameUser(Request $request,UserRepository $userRepository): array
+    {
+        return $userRepository->getName($request->get('id'));
     }
 }
